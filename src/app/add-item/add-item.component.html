@@ -1,0 +1,10 @@
+<div>
+  <label>Enter Item:</label>
+</div>
+<div>
+  <input type="text" [(ngModel)]="newItem">
+</div>
+<div>
+  <button (click)="onAddItem()" [disabled]='newItem === ""'>Add</button>
+  <button (click)="onClear()">Clear</button>
+</div>
