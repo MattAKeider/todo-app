@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Item } from './item.model';
-import { TodoitemService } from './todoitem.service';
+import { Item } from './shared/item.model';
+import { TodoitemService } from './shared/todoitem.service';
 
 @Component({
   selector: 'app-root',
