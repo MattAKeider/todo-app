@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ITEMS } from '../mockData';
+import { Component, OnInit } from '@angular/core';
+
+import { ItemService } from '../shared/item.service';
+import { Item } from '../shared/item.model';
 
 @Component({
   selector: 'app-list',
@@ -7,11 +9,11 @@ import { ITEMS } from '../mockData';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  items = ITEMS;
+  items: Item[]
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.items = this.itemService.getItems(); 
   }
-
 }

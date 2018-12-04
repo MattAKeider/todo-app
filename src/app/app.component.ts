@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ITEMS } from './mockData';
+
+import { Item } from './shared/item.model';
+import { ItemService } from './shared/item.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,9 @@ import { ITEMS } from './mockData';
 export class AppComponent {
   title = 'To Do!!';
 
-  onAddToList(item:string){
-    ITEMS.push(item);
+  constructor(private todoService: ItemService){}
+
+  onAddToList(item:Item){
+    this.todoService.addItems(item);
   }
 }
