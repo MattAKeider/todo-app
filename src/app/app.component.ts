@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Item } from './shared/item.model';
-import { TodoitemService } from './shared/todoitem.service';
+import { ItemService } from './shared/item.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { TodoitemService } from './shared/todoitem.service';
 export class AppComponent {
   title = 'To Do!!';
 
-  constructor(private todoService: TodoitemService){}
+  constructor(private todoService: ItemService){}
 
   onAddToList(item:Item){
     this.todoService.addItems(item);

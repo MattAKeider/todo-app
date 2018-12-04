@@ -6,7 +6,7 @@ import { ITEMS } from './mockData';
 @Injectable({
   providedIn: 'root'
 })
-export class TodoitemService {
+export class ItemService {
 
   constructor() { }
 

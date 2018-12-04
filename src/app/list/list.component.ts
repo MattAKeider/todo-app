@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TodoitemService } from '../shared/todoitem.service';
+import { ItemService } from '../shared/item.service';
 import { Item } from '../shared/item.model';
 
 @Component({
@@ -11,7 +11,7 @@ import { Item } from '../shared/item.model';
 export class ListComponent implements OnInit {
   items: Item[]
 
-  constructor(private itemService: TodoitemService) { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.items = this.itemService.getItems(); 
