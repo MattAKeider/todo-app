@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ITEMS } from './mockData';
+import { Item } from './item.model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { ITEMS } from './mockData';
 export class AppComponent {
   title = 'To Do!!';
 
-  onAddToList(item:string){
+  onAddToList(item:Item){
     ITEMS.push(item);
   }
 }

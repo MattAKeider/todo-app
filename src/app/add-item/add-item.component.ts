@@ -6,8 +6,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  @Output() sendItem = new EventEmitter<string>();
-  newItem:string;
+  @Output() sendItem = new EventEmitter<{contents:string}>();
+  newItem = '';
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class AddItemComponent implements OnInit {
   }
 
   onAddItem(){
-    this.sendItem.emit(this.newItem);
+    this.sendItem.emit({contents:this.newItem});
     this.newItem = '';
   }
 
