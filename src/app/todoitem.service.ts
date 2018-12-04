@@ -12,4 +12,8 @@ export class TodoitemService {
   getItems(): Item[] {
     return ITEMS;
   }
+
+  addItems(item:Item) {
+    ITEMS.push(item);
+  }
 }
