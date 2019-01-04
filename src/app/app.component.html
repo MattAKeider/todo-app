@@ -1,6 +1,7 @@
-<div>
-    <h1>Welcome to {{title}}</h1>
+<div class="container">
+    <div>
+        <h1>Welcome to {{title}}</h1>
+    </div>
+    <app-list></app-list>
+    <app-add-item></app-add-item>
 </div>
-<hr>
-<app-list></app-list>
-<app-add-item (sendItem)="onAddToList($event)"></app-add-item>

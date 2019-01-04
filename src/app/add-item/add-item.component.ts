@@ -1,4 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ItemService } from '../shared/item.service';
+import { Item } from '../shared/item.model';
 
 @Component({
   selector: 'app-add-item',
@@ -6,20 +9,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  @Output() sendItem = new EventEmitter<{contents:string}>();
-  newItem = '';
+  newItem:string = '';
 
-  constructor() { }
+  constructor(private itemService:ItemService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  onAddItem(){
-    this.sendItem.emit({contents:this.newItem});
+  onAddItem(): void {
+    this.itemService.addItem(new Item(this.newItem));
     this.newItem = '';
   }
 
-  onClear(){
+  onClear(): void {
     this.newItem = '';
   }
 
