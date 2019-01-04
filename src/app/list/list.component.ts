@@ -9,11 +9,15 @@ import { Item } from '../shared/item.model';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  items: Item[]
+  items: Item[];
 
   constructor(private itemService: ItemService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.items = this.itemService.getItems(); 
+  }
+
+  onDeleteItem(item:Item): void{
+    this.itemService.deleteItem(item);
   }
 }
