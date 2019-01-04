@@ -1,6 +1,6 @@
 <div>
-  <ul type="none">
-    <li *ngFor="let item of items" (click)="onDeleteItem(item)">{{item.contents}}</li>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of items" (click)="onDeleteItem(item)">{{item.contents}}</li>
   </ul>
 </div>
 
