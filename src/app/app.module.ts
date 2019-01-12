@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { AddItemComponent } from './add-item/add-item.component';
 
-const routes:Routes = [
+const routes: Routes = [
   { path: '', component: ListComponent },
   { path: 'add', component: AddItemComponent }
 ];

@@ -7,7 +7,7 @@ import { ITEMS } from './mockData';
   providedIn: 'root'
 })
 export class ItemService {
-  items:Item[] = ITEMS
+  items: Item[] = ITEMS;
 
   constructor() { }
 
@@ -15,12 +15,12 @@ export class ItemService {
     return this.items;
   }
 
-  addItem(item:Item): void {
+  addItem(item: Item): void {
     this.items.push(item);
   }
 
-  deleteItem(item:Item): void {
-    let index = this.items.indexOf(item);
+  deleteItem(item: Item): void {
+    const index = this.items.indexOf(item);
     this.items.splice(index, 1);
   }
 }

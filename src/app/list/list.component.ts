@@ -14,10 +14,10 @@ export class ListComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems(); 
+    this.items = this.itemService.getItems();
   }
 
-  onDeleteItem(item:Item): void{
+  onDeleteItem(item: Item): void {
     this.itemService.deleteItem(item);
   }
 }

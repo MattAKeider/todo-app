@@ -9,9 +9,9 @@ import { Item } from '../shared/item.model';
   styleUrls: ['./add-item.component.css']
 })
 export class AddItemComponent implements OnInit {
-  newItem:string = '';
+  newItem = '';
 
-  constructor(private itemService:ItemService) { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
   }
