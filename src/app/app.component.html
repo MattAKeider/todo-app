@@ -1,7 +1,17 @@
 <div class="container">
     <div>
-        <h1>Welcome to {{title}}</h1>
+        <h1>{{title}}</h1>
     </div>
-    <app-list></app-list>
-    <app-add-item></app-add-item>
+    <hr>
+    <div>
+        <ul class="nav nav-tabs">
+            <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+                <a class="nav-link" routerLink="/">List</a>
+            </li>
+            <li role="presentation" routerLinkActive="active" class="nav-item">
+                <a class="nav-link" routerLink="/add">Add Item</a>
+            </li>
+        </ul>
+    </div>
+    <router-outlet></router-outlet>
 </div>
