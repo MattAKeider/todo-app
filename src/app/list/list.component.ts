@@ -24,5 +24,13 @@ export class ListComponent implements OnInit {
 
   onSelect(item: Item): void {
     item.isSelected = item.isSelected === false ? true : false;
+    if (item.isSelected) {
+      this.selectedItems.push(item);
+    } else {
+      if (this.selectedItems.includes(item)) {
+        const index = this.selectedItems.indexOf(item);
+        this.selectedItems.splice(index, 1);
+      }
+    }
   }
 }
