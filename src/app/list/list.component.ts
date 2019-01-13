@@ -18,8 +18,8 @@ export class ListComponent implements OnInit {
     this.items = this.itemService.getItems();
   }
 
-  onDeleteItem(item: Item): void {
-    this.itemService.deleteItem(item);
+  onDeleteItems(): void {
+    this.itemService.deleteItems(this.selectedItems);
   }
 
   onSelect(item: Item): void {
