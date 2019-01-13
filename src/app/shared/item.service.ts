@@ -19,8 +19,12 @@ export class ItemService {
     this.items.push(item);
   }
 
-  deleteItem(item: Item): void {
-    const index = this.items.indexOf(item);
-    this.items.splice(index, 1);
+  deleteItems(items: Item[]): void {
+    items.forEach(x => {
+      if (this.items.includes(x)) {
+        const index = this.items.indexOf(x);
+        this.items.splice(index, 1);
+      }
+    });
   }
 }

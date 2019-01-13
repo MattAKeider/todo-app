@@ -1,7 +1,9 @@
 <div>
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let item of items" (click)="onDeleteItem(item)">{{item.contents}}</li>
+    <li appSelectStyle [isSelected]="item.isSelected" class="list-group-item" *ngFor="let item of items" (click)="onSelect(item)">{{item.contents}}</li>
   </ul>
 </div>
+<hr>
+<button class="btn btn-warning" (click)="onDeleteItems($event)">Delete</button>
 
 
