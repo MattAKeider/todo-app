@@ -10,6 +10,7 @@ import { Item } from '../shared/item.model';
 })
 export class ListComponent implements OnInit {
   items: Item[];
+  selectedItems: Item[] = [];
 
   constructor(private itemService: ItemService) { }
 
@@ -19,5 +20,9 @@ export class ListComponent implements OnInit {
 
   onDeleteItem(item: Item): void {
     this.itemService.deleteItem(item);
+  }
+
+  onSelect(item: Item): void {
+    item.isSelected = item.isSelected === false ? true : false;
   }
 }
