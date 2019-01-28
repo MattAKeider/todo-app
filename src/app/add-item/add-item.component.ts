@@ -17,7 +17,7 @@ export class AddItemComponent implements OnInit {
   }
 
   onAddItem(): void {
-    this.itemService.addItem(new Item(this.newItem));
+    this.itemService.addItem(new Item(this.newItem)).subscribe();
     this.newItem = '';
   }
 
