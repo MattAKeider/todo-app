@@ -29,6 +29,7 @@ export class ListComponent implements OnInit {
     this.selectedItems.forEach(item => {
       this.itemService.deleteItem(item).subscribe();
     });
+    this.onGetItems();
   }
 
   onSelect(item: Item): void {
