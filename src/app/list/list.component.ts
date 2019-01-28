@@ -15,11 +15,21 @@ export class ListComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.items = this.itemService.getItems();
+    this.onGetItems();
+  }
+
+  onGetItems(): void {
+    this.itemService.getItems()
+      .subscribe(
+        (value: Item[]) => this.items = value
+      );
   }
 
   onDeleteItems(): void {
-    this.itemService.deleteItems(this.selectedItems);
+    this.selectedItems.forEach(item => {
+      this.itemService.deleteItem(item).subscribe();
+    });
+    this.onGetItems();
   }
 
   onSelect(item: Item): void {
@@ -27,10 +37,8 @@ export class ListComponent implements OnInit {
     if (item.isSelected) {
       this.selectedItems.push(item);
     } else {
-      if (this.selectedItems.includes(item)) {
-        const index = this.selectedItems.indexOf(item);
-        this.selectedItems.splice(index, 1);
-      }
+      const index = this.selectedItems.indexOf(item);
+      this.selectedItems.splice(index, 1);
     }
   }
 }

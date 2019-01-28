@@ -1,12 +1,12 @@
 export class Item {
-    private static id = 0;
-    objectID: number;
+    private static incrementId = 0;
+    id: number;
     contents: string;
     isSelected = false;
 
     constructor(contents: string) {
-        Item.id++;
-        this.objectID = Item.id;
         this.contents = contents;
+        Item.incrementId++;
+        this.id = Item.incrementId;
     }
 }

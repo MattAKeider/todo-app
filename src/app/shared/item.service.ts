@@ -1,30 +1,27 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Item } from './item.model';
-import { ITEMS } from './mockData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
-  items: Item[] = ITEMS;
+  private itemsUrl = 'api/items';
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  getItems(): Item[] {
-    return this.items;
+  getItems(): Observable<Item[]> {
+    return this.httpClient.get<Item[]>(this.itemsUrl);
   }
 
-  addItem(item: Item): void {
-    this.items.push(item);
+  addItem(item: Item): Observable<Item> {
+    return this.httpClient.post<Item>(this.itemsUrl, item);
   }
 
-  deleteItems(items: Item[]): void {
-    items.forEach(x => {
-      if (this.items.includes(x)) {
-        const index = this.items.indexOf(x);
-        this.items.splice(index, 1);
-      }
-    });
+  deleteItem(item: Item): Observable<Item> {
+    const url = `${this.itemsUrl}/${item.id}`;
+    return this.httpClient.delete<Item>(url);
   }
 }
