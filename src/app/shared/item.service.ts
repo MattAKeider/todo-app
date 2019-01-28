@@ -21,8 +21,7 @@ export class ItemService {
   }
 
   deleteItem(item: Item): Observable<Item> {
-    const id = typeof item === 'number' ? item : item.id;
-    const url = `${this.itemsUrl}/${id}`;
+    const url = `${this.itemsUrl}/${item.id}`;
     return this.httpClient.delete<Item>(url);
   }
 }

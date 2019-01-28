@@ -21,7 +21,7 @@ export class ListComponent implements OnInit {
   onGetItems(): void {
     this.itemService.getItems()
       .subscribe(
-        (data) => this.items = data
+        (value: Item[]) => this.items = value
       );
   }
 
