@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 import { ItemService } from '../shared/item.service';
 import { Item } from '../shared/item.model';
@@ -9,8 +8,7 @@ import { Item } from '../shared/item.model';
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css']
 })
-export class AddItemComponent implements OnInit, OnDestroy {
-  subscription = new Subscription();
+export class AddItemComponent implements OnInit {
   newItem = '';
 
   constructor(private itemService: ItemService) { }
@@ -19,16 +17,12 @@ export class AddItemComponent implements OnInit, OnDestroy {
   }
 
   onAddItem(): void {
-    this.subscription = this.itemService.addItem(new Item(this.newItem)).subscribe();
+    this.itemService.addItem(new Item(this.newItem));
     this.newItem = '';
   }
 
   onClear(): void {
     this.newItem = '';
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
 }

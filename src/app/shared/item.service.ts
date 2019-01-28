@@ -1,28 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Item } from './item.model';
+import { ITEMS } from './mockData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
+  items: Item[] = ITEMS;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
-  getItems(): Observable<Item[]> {
-    return this.httpClient.get<Item[]>('https://to-do-list-project-a6287.firebaseio.com/items.json')
-      .pipe(map((response) => {
-        return Object.values(response);
-      }));
+  getItems(): Item[] {
+    return this.items;
   }
 
-  addItem(item: Item): Observable<Item> {
-    return this.httpClient.post<Item>('https://to-do-list-project-a6287.firebaseio.com/items.json', item);
+  addItem(item: Item): void {
+    this.items.push(item);
   }
-/*
+
   deleteItems(items: Item[]): void {
     items.forEach(x => {
       if (this.items.includes(x)) {
@@ -30,5 +26,5 @@ export class ItemService {
         this.items.splice(index, 1);
       }
     });
-  }*/
+  }
 }
