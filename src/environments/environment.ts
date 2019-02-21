@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyBXIeVDyyu5iyy56tmBuoSOhpK4MuWxoUQ',
-    authDomain: 'fs-todo-app.firebaseapp.com',
-    databaseURL: 'https://fs-todo-app.firebaseio.com',
-    projectId: 'fs-todo-app',
-    storageBucket: 'fs-todo-app.appspot.com',
-    messagingSenderId: '590180865327'
+    apiKey: 'AIzaSyAF3WDPBNL_E2nwS40JvfBr9ishMBxB-YI',
+    authDomain: 'todo-app-86f2a.firebaseapp.com',
+    databaseURL: 'https://todo-app-86f2a.firebaseio.com',
+    projectId: 'todo-app-86f2a',
+    storageBucket: 'todo-app-86f2a.appspot.com',
+    messagingSenderId: '1000878705316'
   }
 };
 
