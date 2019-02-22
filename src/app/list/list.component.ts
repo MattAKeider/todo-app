@@ -20,16 +20,15 @@ export class ListComponent implements OnInit {
 
   onGetItems(): void {
     this.itemService.getItems()
-      .subscribe(
-        (value: Item[]) => this.items = value
-      );
+      .subscribe(items => {
+        this.items = items;
+      });
   }
 
   onDeleteItems(): void {
     this.selectedItems.forEach(item => {
-      this.itemService.deleteItem(item).subscribe();
+      this.itemService.deleteItem(item);
     });
-    this.onGetItems();
   }
 
   onSelect(item: Item): void {
