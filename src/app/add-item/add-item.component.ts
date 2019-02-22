@@ -17,8 +17,8 @@ export class AddItemComponent implements OnInit {
   }
 
   onAddItem(): void {
-    const temp: Item = {contents: this.newItem, isSelected: false};
-    this.itemService.addItem(temp);
+    const item: Item = {contents: this.newItem, isSelected: false};
+    this.itemService.addItem(item);
     this.onClear();
   }
 

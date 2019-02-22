@@ -24,14 +24,13 @@ export class ListComponent implements OnInit {
         this.items = items;
       });
   }
-/*
+
   onDeleteItems(): void {
     this.selectedItems.forEach(item => {
-      this.itemService.deleteItem(item).subscribe();
+      this.itemService.deleteItem(item);
     });
-    this.onGetItems();
   }
-*/
+
   onSelect(item: Item): void {
     item.isSelected = item.isSelected === false ? true : false;
     if (item.isSelected) {

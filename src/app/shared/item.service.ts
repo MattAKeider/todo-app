@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument 
+} from '@angular/fire/firestore';
 
 import { Item } from './item.model';
 
@@ -10,19 +15,27 @@ import { Item } from './item.model';
 export class ItemService {
   itemsCollection: AngularFirestoreCollection<Item> = this.fireDB.collection<Item>('items');
   items: Observable<Item[]>;
+  itemDoc: AngularFirestoreDocument<Item>;
 
-  constructor(public fireDB: AngularFirestore) { }
+  constructor(public fireDB: AngularFirestore) {}
 
   getItems(): Observable<Item[]> {
-    return this.items = this.fireDB.collection('items').valueChanges();
+    return this.items = this.itemsCollection
+      .snapshotChanges()
+      .pipe(map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as Item;
+          data.id = a.payload.doc.id;
+          return data;
+        })));
   }
 
   addItem(item: Item): void {
     this.itemsCollection.add(item);
   }
 
-  deleteItem(item: Item) {
-
+  deleteItem(item: Item): void {
+    this.itemDoc = this.fireDB.doc(`items/${item.id}`);
+    this.itemDoc.delete();
   }
 
 }
