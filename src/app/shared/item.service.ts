@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreDocument 
+  AngularFirestoreDocument
 } from '@angular/fire/firestore';
 
 import { Item } from './item.model';
