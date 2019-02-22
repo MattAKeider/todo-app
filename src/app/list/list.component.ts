@@ -20,18 +20,18 @@ export class ListComponent implements OnInit {
 
   onGetItems(): void {
     this.itemService.getItems()
-      .subscribe(
-        (value: Item[]) => this.items = value
-      );
+      .subscribe(items => {
+        this.items = items;
+      });
   }
-
+/*
   onDeleteItems(): void {
     this.selectedItems.forEach(item => {
       this.itemService.deleteItem(item).subscribe();
     });
     this.onGetItems();
   }
-
+*/
   onSelect(item: Item): void {
     item.isSelected = item.isSelected === false ? true : false;
     if (item.isSelected) {
