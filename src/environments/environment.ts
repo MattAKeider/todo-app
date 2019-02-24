@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
+  // Add Firebase database values below!!
   firebase: {
-    apiKey: 'AIzaSyAF3WDPBNL_E2nwS40JvfBr9ishMBxB-YI',
-    authDomain: 'todo-app-86f2a.firebaseapp.com',
-    databaseURL: 'https://todo-app-86f2a.firebaseio.com',
-    projectId: 'todo-app-86f2a',
-    storageBucket: 'todo-app-86f2a.appspot.com',
-    messagingSenderId: '1000878705316'
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: ''
   }
 };
 

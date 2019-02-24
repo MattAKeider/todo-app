@@ -17,7 +17,7 @@ export class ItemService {
   items: Observable<Item[]>;
   itemDoc: AngularFirestoreDocument<Item>;
 
-  constructor(public fireDB: AngularFirestore) {}
+  constructor(private fireDB: AngularFirestore) {}
 
   getItems(): Observable<Item[]> {
     return this.items = this.itemsCollection

@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     AngularFirestoreModule,
-    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase, 'todo-app'),
     RouterModule.forRoot(routes)
   ],
